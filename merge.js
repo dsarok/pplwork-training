@@ -58,7 +58,7 @@ function mergesort(st,end) {
 	mergesort(mid+1,end);
 	merge(st,mid,end);
 }
-
+let atom=0.5;
 console.log(arr);
 mergesort(0,arr.length-1);
 console.log(arr);
