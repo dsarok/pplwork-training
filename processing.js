@@ -12,7 +12,13 @@ btn.addEventListener('click',(e)=>{
 	const position=document.getElementsByName('pos');
 	let permissions=0;
 	 permissions = (perm1.length > 0) + (perm2.length > 0) + (perm3.length > 0) + (perm4.length > 0) ;
-	 
+	 let pos='';
+	 if(position[0].checked){
+		pos=position[0].value;
+	 }
+	 else if(position[1].checked){
+		pos=position[1].value;
+	 }
 	var regularExpressionpasswrd = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
 	var regularExpressionemail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -20,7 +26,8 @@ btn.addEventListener('click',(e)=>{
 	&& (position[0].checked||position[1].checked)) {
 		console.log("good password");
 		const content = document.querySelector('#frm');
-		content.innerText = "Submitted";
+		content.innerHTML=`email:- ${email} <br> password:- ${password} <br> gender:-${gender} <br> position:-${pos}
+		<button>confirm</button>`
     }
     else{
     	console.log("bad password");
