@@ -10,5 +10,8 @@ block content
     each article in articles
       li.list-group-item
         a(href="/article/"+article._id)=article.title
-  script(href="bower_components/bootstrap/dist/js/bootstrap.js")
-  script(href="bower_components/jquery/dist/jquery.js")
+block scripts
+  script(src="js/main.js")
+  script(src="bower_components/bootstrap/dist/js/bootstrap.js")
+  script(src="bower_components/jquery/dist/jquery.js")
+

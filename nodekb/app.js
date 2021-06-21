@@ -51,6 +51,18 @@ app.get('/article/:id',(req,res)=>{
   }
   })
 })
+app.delete('/articles/:id',(req,res)=>{
+   Article.findOneAndDelete({ 
+     _id: req.params.id
+   }, (err) => {
+    if(err) 
+    console.log(err);
+    else{
+      res.send('Success')
+    }
+   });
+   
+})
 
 app.post('/articles/add',(req,res)=>{
   console.log(req.body);
@@ -88,12 +100,7 @@ app.post('/article/edit/:id',(req,res)=>{
     }
   })
 })
-app.get('/articel/del/:id',(req,res)=>{
-  Article.findOneAndDelete({_id:req.params.id},(err)=>{
-    console.log(err);
-  });
-  res.redirect('/');
-})
+
 //server started
 app.listen(3000,function(){
   console.log('server started');
